@@ -1,0 +1,185 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{amsmath, amsthm}
+\usepackage{geometry}
+
+\newcommand{\Left}{\mathopen{}\mathclose\bgroup\left}
+\newcommand{\Right}{\aftergroup\egroup\right}
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{answer}{Answer}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\title{DeHoff's Thermodynamics}
+\author{Chen-Pang He}
+
+\begin{document}
+\maketitle
+This document contains unofficial answers to homework problems in Robert
+DeHoff's \textit{Thermodynamics in Materials Science}, 2nd ed.
+
+\section{Why study thermodynamics?}
+No homework problems are in this chapter.
+
+\section{The structure of thermodynamics}
+\begin{problem}
+    Classify the following thermodynamic systems in the five categories defined
+    in Section 2.1:
+    \begin{enumerate}
+        \item A solid bar of copper.
+        \item A glass of ice water.
+        \item A yttrium stabilized zirconia furnace.
+        \item A Styrofoam coffee cup.
+        \item A eutectic alloy turbine blade rotating at 20,000 r/min.
+    \end{enumerate}
+
+    You may find it necessary to qualify your answer by defining the system
+    more precisely; state your assumptions.
+
+    \begin{remark}
+        \renewcommand{\theenumi}{\arabic{enumi}}
+        The aforementioned five categories are:
+        \begin{enumerate}
+            \item Unary vs.\ multicomponent
+            \item Homogeneous vs.\ heterogeneous
+            \item Closed vs.\ open
+            \item Nonreacting vs.\ reacting
+            \item Otherwise simple vs.\ complex
+        \end{enumerate}
+    \end{remark}
+
+    \begin{answer}
+        TODO
+    \end{answer}
+\end{problem}
+
+\begin{problem}
+\end{problem}
+
+\begin{problem}
+    Determine which of the following properties of a thermodynamic system are
+    extensive properties and which are intensive:
+    \begin{enumerate}
+        \item The mass density.
+        \item The molar density.
+        \item The number of gram atoms of aluminum in a chunk of alumina.
+        \item The potential energy of a system in a gravitational field.
+        \item The molar concentration of NaCl in a salt solution.
+        \item The heat absorbed by the gas in a cylinder when it is compressed.
+    \end{enumerate}
+
+    \begin{answer}
+        (Note that \textbf{densities} convert extensive properties into
+        intensive ones.)
+        \begin{enumerate}
+            \item Intensive
+            \item Intensive
+            \item Extensive
+            \item Extensive
+            \item Intensive
+            \item Extensive
+        \end{enumerate}
+    \end{answer}
+\end{problem}
+
+\begin{problem}
+    Why is heat a process variable?
+\end{problem}
+
+\begin{problem}
+    Write the total differential of the function:
+    \[ z = 12 u^3 v \cos(x) \]
+
+    \begin{enumerate}
+        \item Identify the coefficients of the three differentials in this
+            expression as appropriate partial derivatives.
+        \item Show that three Maxwell relations hold among these coefficients.
+    \end{enumerate}
+    
+    \begin{remark}
+        \[ \frac{d}{dx} x^n = n x^{n - 1} \]
+        \[ \frac{d}{dx} \cos(x) = -\sin(x).\]
+    \end{remark}
+
+    \begin{answer}
+        \begin{align*}
+            \frac{\partial z}{\partial u} &= 36 u^2 v \cos(x) \\
+            \frac{\partial z}{\partial v} &= 12 u^3 \cos(x) \\
+            \frac{\partial z}{\partial x} &= -12 u^3 v \sin(x) \\
+        \end{align*}
+
+        \[ dz = 36 u^2 v \cos(x) \,du
+            + 12 u^3 \cos(x) \,dv
+            - 12 u^3 v \sin(x) \,dx.\]
+
+        \[
+            \begin{gathered}
+                \frac\partial{\partial v}\frac{\partial z}{\partial u}
+                    = 36 u^2 \cos(x)
+                    = \frac\partial{\partial u}\frac{\partial z}{\partial v} \\
+                \frac\partial{\partial x}\frac{\partial z}{\partial u}
+                    = -36 u^2 v \sin(x)
+                    = \frac\partial{\partial u}\frac{\partial z}{\partial x} \\
+                \frac\partial{\partial x}\frac{\partial z}{\partial v}
+                    = -12 u^3 \sin(x)
+                    = \frac\partial{\partial v}\frac{\partial z}{\partial x} \\
+            \end{gathered}
+        \]
+    \end{answer}
+\end{problem}
+
+\begin{problem}
+\end{problem}
+
+\section{The laws of thermodynamics}
+
+\section{Thermodynamic variables and relations}
+\begin{problem}
+    Write out the combined statements of the first and second laws for the
+    energy functions, $U = U(S, V)$, $H = H(S, P)$, $F = F(T, V)$ and $G = G(T,
+    P)$.  Assume $\delta W'$ is zero:
+    \begin{enumerate}
+        \item Write out all eight coefficient relations.
+        \item Derive all four Maxwell relations.
+    \end{enumerate}
+    for these equations.
+
+    \begin{remark}
+        When deriving Maxwell relations, use Schwarz's theorem:
+        \[ \frac\partial{\partial y} \frac{\partial z}{\partial x}
+            = \frac\partial{\partial x} \frac{\partial z}{\partial y}
+            = \frac{\partial^2 z}{\partial x \partial y}.\]
+    \end{remark}
+
+    \begin{answer}
+        \begin{enumerate}
+            \item According to definitions,
+                \begin{align*}
+                    H &= U + PV \\
+                    F &= U - TS \\
+                    G &= H - TS \\
+                    G &= U + PV - TS. \tag{?}
+                \end{align*}
+
+                By the first and second laws,
+                \begin{align*}
+                    dU &= TdS - PdV \\
+                    dH &= TdS + VdP \\
+                    dF &= -SdT - PdV \\
+                    dG &= -SdT + VdP.
+                \end{align*}
+
+            \item
+                \[
+                    \frac{\partial^2 U}{\partial S \partial V}
+                    = \left( \frac{\partial T}{\partial V} \right)_S
+                    = -\left( \frac{\partial P}{\partial S} \right)_V
+                \]
+        \end{enumerate}
+    \end{answer}
+\end{problem}
+\end{document}
