@@ -100,35 +100,34 @@ No homework problems are in this chapter.
         \item Show that three Maxwell relations hold among these coefficients.
     \end{enumerate}
     
-    \begin{remark}
-        \[ \frac{d}{dx} x^n = n x^{n - 1} \]
-        \[ \frac{d}{dx} \cos(x) = -\sin(x).\]
-    \end{remark}
-
     \begin{answer}
-        \begin{align*}
-            \frac{\partial z}{\partial u} &= 36 u^2 v \cos(x) \\
-            \frac{\partial z}{\partial v} &= 12 u^3 \cos(x) \\
-            \frac{\partial z}{\partial x} &= -12 u^3 v \sin(x) \\
-        \end{align*}
+        \begin{enumerate}
+            \item Total derivative can be constructed from partial derivatives.
+                \begin{align*}
+                    \frac{\partial z}{\partial u} &= 36 u^2 v \cos(x) \\
+                    \frac{\partial z}{\partial v} &= 12 u^3 \cos(x) \\
+                    \frac{\partial z}{\partial x} &= -12 u^3 v \sin(x)
+                \end{align*}
 
-        \[ dz = 36 u^2 v \cos(x) \,du
-            + 12 u^3 \cos(x) \,dv
-            - 12 u^3 v \sin(x) \,dx.\]
+                \[ dz = 36 u^2 v \cos(x) \,du
+                    + 12 u^3 \cos(x) \,dv
+                    - 12 u^3 v \sin(x) \,dx.\]
 
-        \[
-            \begin{gathered}
-                \frac\partial{\partial v}\frac{\partial z}{\partial u}
-                    = 36 u^2 \cos(x)
-                    = \frac\partial{\partial u}\frac{\partial z}{\partial v} \\
-                \frac\partial{\partial x}\frac{\partial z}{\partial u}
-                    = -36 u^2 v \sin(x)
-                    = \frac\partial{\partial u}\frac{\partial z}{\partial x} \\
-                \frac\partial{\partial x}\frac{\partial z}{\partial v}
-                    = -12 u^3 \sin(x)
-                    = \frac\partial{\partial v}\frac{\partial z}{\partial x} \\
-            \end{gathered}
-        \]
+            \item Maxwell relations are direct corollaries of Schwarz's theorem.
+                \[
+                    \begin{gathered}
+                        \frac\partial{\partial v}\frac{\partial z}{\partial u}
+                            = 36 u^2 \cos(x)
+                            = \frac\partial{\partial u}\frac{\partial z}{\partial v} \\
+                        \frac\partial{\partial x}\frac{\partial z}{\partial u}
+                            = -36 u^2 v \sin(x)
+                            = \frac\partial{\partial u}\frac{\partial z}{\partial x} \\
+                        \frac\partial{\partial x}\frac{\partial z}{\partial v}
+                            = -12 u^3 \sin(x)
+                            = \frac\partial{\partial v}\frac{\partial z}{\partial x} \\
+                    \end{gathered}
+                \]
+        \end{enumerate}
     \end{answer}
 \end{problem}
 
@@ -148,36 +147,61 @@ No homework problems are in this chapter.
     \end{enumerate}
     for these equations.
 
-    \begin{remark}
-        When deriving Maxwell relations, use Schwarz's theorem:
-        \[ \frac\partial{\partial y} \frac{\partial z}{\partial x}
-            = \frac\partial{\partial x} \frac{\partial z}{\partial y}
-            = \frac{\partial^2 z}{\partial x \partial y}.\]
-    \end{remark}
-
     \begin{answer}
         \begin{enumerate}
             \item According to definitions,
                 \begin{align*}
                     H &= U + PV \\
                     F &= U - TS \\
-                    G &= H - TS \\
-                    G &= U + PV - TS. \tag{?}
+                    G &= H - TS.
                 \end{align*}
 
-                By the first and second laws,
+                By the first law,
+                \[ \Delta U = Q + W \]
+                \[ W(S, V) = -\int PdV \]
+                \begin{equation}
+                    \Delta U(S, V) = Q -\int PdV. \label{eq:1st}
+                \end{equation}
+
+                By the second law,
+                \[ \Delta S = \int dS = \int \frac{\delta Q}{T} \]
+                \begin{equation}
+                    Q = \int \delta Q = \int TdS. \label{eq:2nd}
+                \end{equation}
+
+                Combining equations \eqref{eq:1st} and \eqref{eq:2nd},
+                \[ \Delta U = \int dU = \int TdS - \int PdV \]
+                \begin{equation}
+                    dU = TdS - PdV. \label{eq:dU}
+                \end{equation}
+
+                The other differentials are computed with \eqref{eq:dU}.
                 \begin{align*}
-                    dU &= TdS - PdV \\
                     dH &= TdS + VdP \\
                     dF &= -SdT - PdV \\
                     dG &= -SdT + VdP.
                 \end{align*}
 
-            \item
+            \item Maxwell relations can be derived with Schwarz's theorem.
                 \[
                     \frac{\partial^2 U}{\partial S \partial V}
                     = \left( \frac{\partial T}{\partial V} \right)_S
                     = -\left( \frac{\partial P}{\partial S} \right)_V
+                \]
+                \[
+                    \frac{\partial^2 H}{\partial S \partial P}
+                    = \left( \frac{\partial T}{\partial V} \right)_S
+                    = \left( \frac{\partial V}{\partial S} \right)_P
+                \]
+                \[
+                    -\frac{\partial^2 F}{\partial T \partial V}
+                    = \left( \frac{\partial S}{\partial V} \right)_T
+                    = \left( \frac{\partial P}{\partial S} \right)_V
+                \]
+                \[
+                    \frac{\partial^2 G}{\partial S \partial P}
+                    = -\left( \frac{\partial S}{\partial V} \right)_T
+                    = \left( \frac{\partial V}{\partial S} \right)_P
                 \]
         \end{enumerate}
     \end{answer}
