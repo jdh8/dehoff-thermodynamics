@@ -99,7 +99,7 @@ No homework problems are in this chapter.
             expression as appropriate partial derivatives.
         \item Show that three Maxwell relations hold among these coefficients.
     \end{enumerate}
-    
+
     \begin{answer}
         \begin{enumerate}
             \item Total derivative can be constructed from partial derivatives.
@@ -204,6 +204,51 @@ No homework problems are in this chapter.
                     = \left( \frac{\partial V}{\partial S} \right)_P
                 \]
         \end{enumerate}
+    \end{answer}
+\end{problem}
+
+\begin{problem}
+    Derive the ratio relation Equation 4.30:
+    \[
+        \left( \frac{\partial Z}{\partial X} \right)_Y
+        \left( \frac{\partial X}{\partial Y} \right)_Z
+        \left( \frac{\partial Y}{\partial Z} \right)_X
+        = -1.
+    \]
+
+    \begin{answer}
+        Let $F$ be a function satisfying
+        \[ F(X, Y, Z) = 0.\]
+
+        Applicability of inverse function theorem is assumed in thermodynamic
+        setting: $F$ is deemed differentiable and its partial derivatives are
+        nonzero.  For brevity, let
+        \begin{align*}
+            A &= \frac{\partial F}{\partial X} \\
+            B &= \frac{\partial F}{\partial Y} \\
+            C &= \frac{\partial F}{\partial Z}.
+        \end{align*}
+
+        Then the total differential of $F$ is
+        \[ dF = AdX + BdY + CdZ = 0.\]
+
+        The needed partial derivatives can be reconstructed from the total
+        differential.
+        \begin{align*}
+            -CdZ &= AdX + BdY \\
+            -AdX &= BdY + CdZ \\
+            -BdY &= CdZ + AdX
+        \end{align*}
+
+        \[
+            \left( \frac{\partial Z}{\partial X} \right)_Y
+            \left( \frac{\partial X}{\partial Y} \right)_Z
+            \left( \frac{\partial Y}{\partial Z} \right)_X
+            = \left( -\frac AC \right)
+              \left( -\frac BA \right)
+              \left( -\frac CB \right)
+            = -1.
+        \]
     \end{answer}
 \end{problem}
 \end{document}
