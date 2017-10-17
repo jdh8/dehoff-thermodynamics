@@ -39,23 +39,23 @@ No homework problems are in this chapter.
 
     You may find it necessary to qualify your answer by defining the system
     more precisely; state your assumptions.
-
-    \begin{remark}
-        \renewcommand{\theenumi}{\arabic{enumi}}
-        The aforementioned five categories are:
-        \begin{enumerate}
-            \item Unary vs.\ multicomponent
-            \item Homogeneous vs.\ heterogeneous
-            \item Closed vs.\ open
-            \item Nonreacting vs.\ reacting
-            \item Otherwise simple vs.\ complex
-        \end{enumerate}
-    \end{remark}
-
-    \begin{answer}
-        TODO
-    \end{answer}
 \end{problem}
+
+\begin{remark}
+    \renewcommand{\theenumi}{\arabic{enumi}}
+    The aforementioned five categories are:
+    \begin{enumerate}
+        \item Unary vs.\ multicomponent
+        \item Homogeneous vs.\ heterogeneous
+        \item Closed vs.\ open
+        \item Nonreacting vs.\ reacting
+        \item Otherwise simple vs.\ complex
+    \end{enumerate}
+\end{remark}
+
+\begin{answer}
+    TODO
+\end{answer}
 
 \begin{problem}
 \end{problem}
@@ -71,20 +71,20 @@ No homework problems are in this chapter.
         \item The molar concentration of NaCl in a salt solution.
         \item The heat absorbed by the gas in a cylinder when it is compressed.
     \end{enumerate}
-
-    \begin{answer}
-        (Note that \textbf{densities} convert extensive properties into
-        intensive ones.)
-        \begin{enumerate}
-            \item Intensive
-            \item Intensive
-            \item Extensive
-            \item Extensive
-            \item Intensive
-            \item Extensive
-        \end{enumerate}
-    \end{answer}
 \end{problem}
+
+\begin{answer}
+    (Note that \textbf{densities} convert extensive properties into
+    intensive ones.)
+    \begin{enumerate}
+        \item Intensive
+        \item Intensive
+        \item Extensive
+        \item Extensive
+        \item Intensive
+        \item Extensive
+    \end{enumerate}
+\end{answer}
 
 \begin{problem}
     Why is heat a process variable?
@@ -99,37 +99,37 @@ No homework problems are in this chapter.
             expression as appropriate partial derivatives.
         \item Show that three Maxwell relations hold among these coefficients.
     \end{enumerate}
-
-    \begin{answer}
-        \begin{enumerate}
-            \item Total derivative can be constructed from partial derivatives.
-                \begin{align*}
-                    \frac{\partial z}{\partial u} &= 36 u^2 v \cos(x) \\
-                    \frac{\partial z}{\partial v} &= 12 u^3 \cos(x) \\
-                    \frac{\partial z}{\partial x} &= -12 u^3 v \sin(x)
-                \end{align*}
-
-                \[ dz = 36 u^2 v \cos(x) \,du
-                    + 12 u^3 \cos(x) \,dv
-                    - 12 u^3 v \sin(x) \,dx.\]
-
-            \item Maxwell relations are direct corollaries of Schwarz's theorem.
-                \[
-                    \begin{gathered}
-                        \frac\partial{\partial v}\frac{\partial z}{\partial u}
-                            = 36 u^2 \cos(x)
-                            = \frac\partial{\partial u}\frac{\partial z}{\partial v} \\
-                        \frac\partial{\partial x}\frac{\partial z}{\partial u}
-                            = -36 u^2 v \sin(x)
-                            = \frac\partial{\partial u}\frac{\partial z}{\partial x} \\
-                        \frac\partial{\partial x}\frac{\partial z}{\partial v}
-                            = -12 u^3 \sin(x)
-                            = \frac\partial{\partial v}\frac{\partial z}{\partial x} \\
-                    \end{gathered}
-                \]
-        \end{enumerate}
-    \end{answer}
 \end{problem}
+
+\begin{answer}
+    \begin{enumerate}
+        \item Total derivative can be constructed from partial derivatives.
+            \begin{align*}
+                \frac{\partial z}{\partial u} &= 36 u^2 v \cos(x) \\
+                \frac{\partial z}{\partial v} &= 12 u^3 \cos(x) \\
+                \frac{\partial z}{\partial x} &= -12 u^3 v \sin(x)
+            \end{align*}
+
+            \[ dz = 36 u^2 v \cos(x) \,du
+                + 12 u^3 \cos(x) \,dv
+                - 12 u^3 v \sin(x) \,dx.\]
+
+        \item Maxwell relations are direct corollaries of Schwarz's theorem.
+            \[
+                \begin{gathered}
+                    \frac\partial{\partial v}\frac{\partial z}{\partial u}
+                        = 36 u^2 \cos(x)
+                        = \frac\partial{\partial u}\frac{\partial z}{\partial v} \\
+                    \frac\partial{\partial x}\frac{\partial z}{\partial u}
+                        = -36 u^2 v \sin(x)
+                        = \frac\partial{\partial u}\frac{\partial z}{\partial x} \\
+                    \frac\partial{\partial x}\frac{\partial z}{\partial v}
+                        = -12 u^3 \sin(x)
+                        = \frac\partial{\partial v}\frac{\partial z}{\partial x} \\
+                \end{gathered}
+            \]
+    \end{enumerate}
+\end{answer}
 
 \begin{problem}
 \end{problem}
@@ -146,66 +146,66 @@ No homework problems are in this chapter.
         \item Derive all four Maxwell relations.
     \end{enumerate}
     for these equations.
-
-    \begin{answer}
-        \begin{enumerate}
-            \item According to definitions,
-                \begin{align*}
-                    H &= U + PV \\
-                    F &= U - TS \\
-                    G &= H - TS.
-                \end{align*}
-
-                By the first law,
-                \[ \Delta U = Q + W \]
-                \[ W(S, V) = -\int PdV \]
-                \begin{equation}
-                    \Delta U(S, V) = Q -\int PdV. \label{eq:1st}
-                \end{equation}
-
-                By the second law,
-                \[ \Delta S = \int dS = \int \frac{\delta Q}{T} \]
-                \begin{equation}
-                    Q = \int \delta Q = \int TdS. \label{eq:2nd}
-                \end{equation}
-
-                Combining equations \eqref{eq:1st} and \eqref{eq:2nd},
-                \[ \Delta U = \int dU = \int TdS - \int PdV \]
-                \begin{equation}
-                    dU = TdS - PdV. \label{eq:dU}
-                \end{equation}
-
-                The other differentials are computed with \eqref{eq:dU}.
-                \begin{align*}
-                    dH &= TdS + VdP \\
-                    dF &= -SdT - PdV \\
-                    dG &= -SdT + VdP.
-                \end{align*}
-
-            \item Maxwell relations can be derived with Schwarz's theorem.
-                \[
-                    \frac{\partial^2 U}{\partial S \partial V}
-                    = \left( \frac{\partial T}{\partial V} \right)_S
-                    = -\left( \frac{\partial P}{\partial S} \right)_V
-                \]
-                \[
-                    \frac{\partial^2 H}{\partial S \partial P}
-                    = \left( \frac{\partial T}{\partial V} \right)_S
-                    = \left( \frac{\partial V}{\partial S} \right)_P
-                \]
-                \[
-                    -\frac{\partial^2 F}{\partial T \partial V}
-                    = \left( \frac{\partial S}{\partial V} \right)_T
-                    = \left( \frac{\partial P}{\partial S} \right)_V
-                \]
-                \[
-                    \frac{\partial^2 G}{\partial S \partial P}
-                    = -\left( \frac{\partial S}{\partial V} \right)_T
-                    = \left( \frac{\partial V}{\partial S} \right)_P
-                \]
-        \end{enumerate}
-    \end{answer}
 \end{problem}
+
+\begin{answer}
+    \begin{enumerate}
+        \item According to definitions,
+            \begin{align*}
+                H &= U + PV \\
+                F &= U - TS \\
+                G &= H - TS.
+            \end{align*}
+
+            By the first law,
+            \[ \Delta U = Q + W \]
+            \[ W(S, V) = -\int PdV \]
+            \begin{equation}
+                \Delta U(S, V) = Q -\int PdV. \label{eq:1st}
+            \end{equation}
+
+            By the second law,
+            \[ \Delta S = \int dS = \int \frac{\delta Q}{T} \]
+            \begin{equation}
+                Q = \int \delta Q = \int TdS. \label{eq:2nd}
+            \end{equation}
+
+            Combining equations \eqref{eq:1st} and \eqref{eq:2nd},
+            \[ \Delta U = \int dU = \int TdS - \int PdV \]
+            \begin{equation}
+                dU = TdS - PdV. \label{eq:dU}
+            \end{equation}
+
+            The other differentials are computed with \eqref{eq:dU}.
+            \begin{align*}
+                dH &= TdS + VdP \\
+                dF &= -SdT - PdV \\
+                dG &= -SdT + VdP.
+            \end{align*}
+
+        \item Maxwell relations can be derived with Schwarz's theorem.
+            \[
+                \frac{\partial^2 U}{\partial S \partial V}
+                = \left( \frac{\partial T}{\partial V} \right)_S
+                = -\left( \frac{\partial P}{\partial S} \right)_V
+            \]
+            \[
+                \frac{\partial^2 H}{\partial S \partial P}
+                = \left( \frac{\partial T}{\partial V} \right)_S
+                = \left( \frac{\partial V}{\partial S} \right)_P
+            \]
+            \[
+                -\frac{\partial^2 F}{\partial T \partial V}
+                = \left( \frac{\partial S}{\partial V} \right)_T
+                = \left( \frac{\partial P}{\partial S} \right)_V
+            \]
+            \[
+                \frac{\partial^2 G}{\partial S \partial P}
+                = -\left( \frac{\partial S}{\partial V} \right)_T
+                = \left( \frac{\partial V}{\partial S} \right)_P
+            \]
+    \end{enumerate}
+\end{answer}
 
 \begin{problem}
     Derive the ratio relation Equation 4.30:
@@ -215,40 +215,43 @@ No homework problems are in this chapter.
         \left( \frac{\partial Y}{\partial Z} \right)_X
         = -1.
     \]
+\end{problem}
 
-    \begin{answer}
-        Let $F$ be a function satisfying
-        \[ F(X, Y, Z) = 0.\]
+\begin{answer}
+    Let $F$ be a function satisfying
+    \[ F(X, Y, Z) = 0.\]
 
-        Applicability of inverse function theorem is assumed in thermodynamic
-        setting: $F$ is deemed differentiable and its partial derivatives are
-        nonzero.  For brevity, let
-        \begin{align*}
-            A &= \frac{\partial F}{\partial X} \\
-            B &= \frac{\partial F}{\partial Y} \\
-            C &= \frac{\partial F}{\partial Z}.
-        \end{align*}
+    Applicability of inverse function theorem is assumed in thermodynamic
+    setting: $F$ is deemed differentiable and its partial derivatives are
+    nonzero.  For brevity, let
+    \begin{align*}
+        A &= \frac{\partial F}{\partial X} \\
+        B &= \frac{\partial F}{\partial Y} \\
+        C &= \frac{\partial F}{\partial Z}.
+    \end{align*}
 
-        Then the total differential of $F$ is
-        \[ dF = AdX + BdY + CdZ = 0.\]
+    Then the total differential of $F$ is
+    \[ dF = AdX + BdY + CdZ = 0.\]
 
-        The needed partial derivatives can be reconstructed from the total
-        differential.
-        \begin{align*}
-            -CdZ &= AdX + BdY \\
-            -AdX &= BdY + CdZ \\
-            -BdY &= CdZ + AdX
-        \end{align*}
+    The needed partial derivatives can be reconstructed from the total
+    differential.
+    \begin{align*}
+        -CdZ &= AdX + BdY \\
+        -AdX &= BdY + CdZ \\
+        -BdY &= CdZ + AdX
+    \end{align*}
 
-        \[
-            \left( \frac{\partial Z}{\partial X} \right)_Y
-            \left( \frac{\partial X}{\partial Y} \right)_Z
-            \left( \frac{\partial Y}{\partial Z} \right)_X
-            = \left( -\frac AC \right)
-              \left( -\frac BA \right)
-              \left( -\frac CB \right)
-            = -1.
-        \]
-    \end{answer}
+    \[
+        \left( \frac{\partial Z}{\partial X} \right)_Y
+        \left( \frac{\partial X}{\partial Y} \right)_Z
+        \left( \frac{\partial Y}{\partial Z} \right)_X
+        = \left( -\frac AC \right)
+          \left( -\frac BA \right)
+          \left( -\frac CB \right)
+        = -1.
+    \]
+\end{answer}
+
+\begin{problem}
 \end{problem}
 \end{document}
