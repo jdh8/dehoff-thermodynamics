@@ -253,5 +253,36 @@ No homework problems are in this chapter.
 \end{answer}
 
 \begin{problem}
+    The molar volume of Al$_2$O$_3$ at 25$^\circ$C and 1 atm is 25.715 cc/mol.
+    Its coefficient of thermal expansion is $26 \times 10^{-6}$ K$^{-1}$ and
+    the coefficient of compressibility is $8.0 \times 10^{-7}$ atm$^{-1}$.
+    Estimate the molar volume of Al$_2$O$_3$ at 400$^\circ$C and 10 kbars
+    pressure ($10 \times 10^3$ atm).
 \end{problem}
+
+\begin{answer}
+    The molar volume $V$ (cc/mol) is a function of temperature $T$ ($^\circ$C)
+    and pressure $P$ (atm).  This is an initial value problem.
+    \[ V(25, 1) = 25.715 \]
+    \[ \frac1V \frac{\partial V}{\partial T} = 26 \times 10^{-6} \]
+    \[ \frac1V \frac{\partial V}{\partial P} = -8.0 \times 10^{-7} \]
+
+    Solve the system of partial differential equations.
+    \[
+        \int \frac{dV}{V} =
+            \int \left( 26 \times 10^{-6} \right) dT 
+            - \int \left( 8.0 \times 10^{-7} \right) dP
+    \]
+    \[
+        \ln V - \ln 25.715 =
+            \left( 26 \times 10^{-6}  \right) \left( T - 25 \right)
+            - \left( 8.0 \times 10^{-7} \right) \left( P - 1 \right)
+    \]
+    \begin{align*}
+        V(400, 10000) &= 25.715 \, \exp \Left(
+            \left( 26 \times 10^{-6}  \right) \left( 400 - 25 \right)
+            - \left( 8.0 \times 10^{-7} \right) \left( 10000 - 1 \right) \Right) \\
+            &= 25.760 \text{ (cc/mol)}
+    \end{align*}
+\end{answer}
 \end{document}
