@@ -305,15 +305,47 @@ No homework problems are in this chapter.
 \end{problem}
 
 \begin{problem}
+    Evaluate the partial derivative
+    \[ \left( \frac{\partial H}{\partial G} \right)_S \]
+    in terms of experimental variables.
 \end{problem}
 
 \begin{answer}
-    \[ dG = -SdT + VdP \]
-    \[ dS = \frac{C_P}{T} dT - V \alpha dP \]
+    Enthalpy has a simple isentropic partial derivative.
+    \begin{equation}
+       \left( \frac{\partial H}{\partial P} \right)_S = V. \label{eq:HPS}
+    \end{equation}
+
+    This is not the case for Gibbs free energy.
+    \begin{equation}
+        dG = -SdT + VdP. \label{eq:dG}
+    \end{equation}
+
+    To obtain isentropic partial derivative, try to replace $dT$ with $dS$.
+    Expressing entropy with $S(T, P)$ would produce useful differentials.
+    \[
+        \left( \frac{\partial S}{\partial T} \right)_P
+        = \frac1T \left( \frac{\partial Q}{\partial T} \right)_P
+        = \frac{C_P}{T}
+    \]
+    \[
+        \left( \frac{\partial S}{\partial P} \right)_T
+        = -\frac{\partial^2 G}{\partial T \partial P}
+        = -\left( \frac{\partial V}{\partial T} \right)_P
+        = -V \alpha
+    \]
+    \[ dS = \frac{C_P}{T} dT - V \alpha dP. \]
+
+    Replace $dT$ with $dS$ in \eqref{eq:dG} to find
+    $\left( \partial G / \partial P \right)_S$.
     \[ dT = \frac{T}{C_P} dS + \frac{TV\alpha}{C_P} dP \]
     \[ dG = -\frac{TS}{C_P} dS + \left( V - \frac{TSV\alpha}{C_P} \right) dP \]
-    \[ \left( \frac{\partial G}{\partial P} \right)_S = V - \frac{TSV\alpha}{C_P} \]
-    \[ \left( \frac{\partial H}{\partial P} \right)_S = V \]
+    \begin{equation}
+        \left( \frac{\partial G}{\partial P} \right)_S = V - \frac{TSV\alpha}{C_P}. \label{eq:GPS}
+    \end{equation}
+
+    Express partial differential with differential quotient to incorporate
+    results from \eqref{eq:HPS} and \eqref{eq:GPS}.
     \[
         \left( \frac{\partial H}{\partial G} \right)_S
         = \left( \frac{\partial H}{\partial P} \right)_S \left( \frac{\partial P}{\partial G} \right)_S
