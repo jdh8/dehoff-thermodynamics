@@ -1,0 +1,218 @@
+\begin{@empty}
+\section{Thermodynamic variables and relations}
+\begin{problem}
+    Write out the combined statements of the first and second laws for the
+    energy functions, $U = U(S, V)$, $H = H(S, P)$, $F = F(T, V)$ and $G = G(T,
+    P)$.  Assume $\delta W'$ is zero:
+    \begin{enumerate}
+        \item Write out all eight coefficient relations.
+        \item Derive all four Maxwell relations.
+    \end{enumerate}
+    for these equations.
+\end{problem}
+
+\begin{answer}
+    \begin{enumerate}
+        \item According to definitions,
+            \begin{align*}
+                H &= U + PV \\
+                F &= U - TS \\
+                G &= H - TS.
+            \end{align*}
+
+            By the first law,
+            \[ \Delta U = Q + W \]
+            \[ W(S, V) = -\int PdV \]
+            \begin{equation}
+                \Delta U(S, V) = Q -\int PdV. \label{eq:1st}
+            \end{equation}
+
+            By the second law,
+            \[ \Delta S = \int dS = \int \frac{\delta Q}{T} \]
+            \begin{equation}
+                Q = \int \delta Q = \int TdS. \label{eq:2nd}
+            \end{equation}
+
+            Combining equations \eqref{eq:1st} and \eqref{eq:2nd},
+            \[ \Delta U = \int dU = \int TdS - \int PdV \]
+            \begin{equation}
+                dU = TdS - PdV. \label{eq:dU}
+            \end{equation}
+
+            The other differentials are computed with \eqref{eq:dU}.
+            \begin{align*}
+                dH &= TdS + VdP \\
+                dF &= -SdT - PdV \\
+                dG &= -SdT + VdP.
+            \end{align*}
+
+        \item Maxwell relations can be derived with Schwarz's theorem.
+            \[
+                \frac{\partial^2 U}{\partial S \partial V}
+                = \left( \frac{\partial T}{\partial V} \right)_S
+                = -\left( \frac{\partial P}{\partial S} \right)_V
+            \]
+            \[
+                \frac{\partial^2 H}{\partial S \partial P}
+                = \left( \frac{\partial T}{\partial P} \right)_S
+                = \left( \frac{\partial V}{\partial S} \right)_P
+            \]
+            \[
+                -\frac{\partial^2 F}{\partial T \partial V}
+                = \left( \frac{\partial S}{\partial V} \right)_T
+                = \left( \frac{\partial P}{\partial T} \right)_V
+            \]
+            \[
+                \frac{\partial^2 G}{\partial T \partial P}
+                = -\left( \frac{\partial S}{\partial P} \right)_T
+                = \left( \frac{\partial V}{\partial T} \right)_P
+            \]
+    \end{enumerate}
+\end{answer}
+
+\begin{problem}
+    Derive the ratio relation Equation 4.30:
+    \[
+        \left( \frac{\partial Z}{\partial X} \right)_Y
+        \left( \frac{\partial X}{\partial Y} \right)_Z
+        \left( \frac{\partial Y}{\partial Z} \right)_X
+        = -1.
+    \]
+\end{problem}
+
+\begin{answer}
+    Let $F$ be a function satisfying
+    \[ F(X, Y, Z) = 0.\]
+
+    Applicability of inverse function theorem is assumed in thermodynamic
+    setting: $F$ is deemed differentiable and its partial derivatives are
+    nonzero.  For brevity, let
+    \begin{align*}
+        A &= \frac{\partial F}{\partial X} \\
+        B &= \frac{\partial F}{\partial Y} \\
+        C &= \frac{\partial F}{\partial Z}.
+    \end{align*}
+
+    Then the total differential of $F$ is
+    \[ dF = AdX + BdY + CdZ = 0.\]
+
+    The needed partial derivatives can be reconstructed from the total
+    differential.
+    \begin{align*}
+        -CdZ &= AdX + BdY \\
+        -AdX &= BdY + CdZ \\
+        -BdY &= CdZ + AdX
+    \end{align*}
+
+    \[
+        \left( \frac{\partial Z}{\partial X} \right)_Y
+        \left( \frac{\partial X}{\partial Y} \right)_Z
+        \left( \frac{\partial Y}{\partial Z} \right)_X
+        = \left( -\frac AC \right)
+          \left( -\frac BA \right)
+          \left( -\frac CB \right)
+        = -1.
+    \]
+\end{answer}
+
+\begin{problem}
+    The molar volume of Al$_2$O$_3$ at 25$^\circ$C and 1 atm is 25.715 cc/mol.
+    Its coefficient of thermal expansion is $26 \times 10^{-6}$ K$^{-1}$ and
+    the coefficient of compressibility is $8.0 \times 10^{-7}$ atm$^{-1}$.
+    Estimate the molar volume of Al$_2$O$_3$ at 400$^\circ$C and 10 kbars
+    pressure ($10 \times 10^3$ atm).
+\end{problem}
+
+\begin{answer}
+    The molar volume $V$ is a function of temperature $T$ and pressure $P$.
+    This is an initial value problem.
+    \[ T_0 = 25^\circ\text C \]
+    \[ P_0 = 1\text{ atm} \]
+    \[ V(T_0, P_0) = V_0 = 25.715\text{ cc/mol} \]
+    \[ \frac1V \frac{\partial V}{\partial T} = \alpha = 26 \times 10^{-6}\text{ K}^{-1} \]
+    \[ -\frac1V \frac{\partial V}{\partial P} = \beta = 8.0 \times 10^{-7}\text{ atm}^{-1}.\]
+
+    Convert the system of partial differential equations into differentials.
+    \[ dV = V \alpha dT - V \beta dP.\]
+
+    This is a separable equation, which is solvable by mere integration.
+    \[ \int \frac1V dV = \int \alpha dT - \int \beta dP.\]
+
+    Integrate from the initial state.
+    \[ \ln V - \ln V_0 = \alpha \left( T - T_0 \right) - \beta \left( P - P_0 \right) \]
+    \[ V = V_0 \exp \Left( \alpha \left( T - T_0 \right) - \beta \left( P - P_0 \right) \Right).\]
+
+    Compute the volume in the final state with the just solved $V(T, P)$.
+    \[ T_1 = 400^\circ\text C \]
+    \[ P_1 = 10000\text{ atm} \]
+    \begin{align*}
+        V(T_1, P_1)
+        &= V_0 \exp \Left( \alpha \left( T_1 - T_0 \right) - \beta \left( P_1 - P_0 \right) \Right) \\
+        &= 25.760 \text{ cc/mol}
+    \end{align*}
+\end{answer}
+
+\begin{problem}
+\end{problem}
+
+\begin{problem}
+\end{problem}
+
+\begin{problem}
+\end{problem}
+
+\begin{problem}
+\end{problem}
+
+\begin{problem}
+\end{problem}
+
+\begin{problem}
+    Evaluate the partial derivative
+    \[ \left( \frac{\partial H}{\partial G} \right)_S \]
+    in terms of experimental variables.
+\end{problem}
+
+\begin{answer}
+    Enthalpy has a simple isentropic partial derivative.
+    \begin{equation}
+       \left( \frac{\partial H}{\partial P} \right)_S = V. \label{eq:HPS}
+    \end{equation}
+
+    This is not the case for Gibbs free energy.
+    \begin{equation}
+        dG = -SdT + VdP. \label{eq:dG}
+    \end{equation}
+
+    To obtain isentropic partial derivative, try to replace $dT$ with $dS$.
+    Expressing entropy with $S(T, P)$ would produce useful differentials.
+    \[
+        \left( \frac{\partial S}{\partial T} \right)_P
+        = \frac1T \left( \frac{\partial Q}{\partial T} \right)_P
+        = \frac{C_P}{T}
+    \]
+    \[
+        \left( \frac{\partial S}{\partial P} \right)_T
+        = -\frac{\partial^2 G}{\partial T \partial P}
+        = -\left( \frac{\partial V}{\partial T} \right)_P
+        = -V \alpha
+    \]
+    \[ dS = \frac{C_P}{T} dT - V \alpha dP. \]
+
+    Replace $dT$ with $dS$ in \eqref{eq:dG} to find
+    $\left( \partial G / \partial P \right)_S$.
+    \[ dT = \frac{T}{C_P} dS + \frac{TV\alpha}{C_P} dP \]
+    \[ dG = -\frac{TS}{C_P} dS + \left( V - \frac{TSV\alpha}{C_P} \right) dP \]
+    \begin{equation}
+        \left( \frac{\partial G}{\partial P} \right)_S = V - \frac{TSV\alpha}{C_P}. \label{eq:GPS}
+    \end{equation}
+
+    Express partial differential with differential quotient to incorporate
+    results from \eqref{eq:HPS} and \eqref{eq:GPS}.
+    \[
+        \left( \frac{\partial H}{\partial G} \right)_S
+        = \left( \frac{\partial H}{\partial P} \right)_S \left( \frac{\partial P}{\partial G} \right)_S
+        = \frac{C_P}{C_P - TS\alpha}
+    \]
+\end{answer}
+\end{@empty}
