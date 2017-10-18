@@ -261,28 +261,31 @@ No homework problems are in this chapter.
 \end{problem}
 
 \begin{answer}
-    The molar volume $V$ (cc/mol) is a function of temperature $T$ ($^\circ$C)
-    and pressure $P$ (atm).  This is an initial value problem.
-    \[ V(25, 1) = 25.715 \]
-    \[ \frac1V \frac{\partial V}{\partial T} = 26 \times 10^{-6} \]
-    \[ \frac1V \frac{\partial V}{\partial P} = -8.0 \times 10^{-7} \]
+    The molar volume $V$ is a function of temperature $T$ and pressure $P$.
+    This is an initial value problem.
+    \[ T_0 = 25^\circ\text C \]
+    \[ P_0 = 1\text{ atm} \]
+    \[ V(T_0, P_0) = V_0 = 25.715\text{ cc/mol} \]
+    \[ \frac1V \frac{\partial V}{\partial T} = \alpha = 26 \times 10^{-6}\text{ K}^{-1} \]
+    \[ -\frac1V \frac{\partial V}{\partial P} = \beta = 8.0 \times 10^{-7}\text{ atm}^{-1}.\]
 
-    Solve the system of partial differential equations.
-    \[
-        \int \frac{dV}{V} =
-            \int \left( 26 \times 10^{-6} \right) dT 
-            - \int \left( 8.0 \times 10^{-7} \right) dP
-    \]
-    \[
-        \ln V - \ln 25.715 =
-            \left( 26 \times 10^{-6}  \right) \left( T - 25 \right)
-            - \left( 8.0 \times 10^{-7} \right) \left( P - 1 \right)
-    \]
+    Convert the system of partial differential equations into differentials.
+    \[ dV = \alpha V dT - \beta V dP.\]
+
+    This is a separable equation, which is solvable by mere integration.
+    \[ \int \frac1V dV = \int \alpha dT - \int \beta dP.\]
+
+    Integrate from the initial state.
+    \[ \ln V - \ln V_0 = \alpha \left( T - T_0 \right) - \beta \left( P - P_0 \right) \]
+    \[ V = V_0 \exp \Left( \alpha \left( T - T_0 \right) - \beta \left( P - P_0 \right) \Right).\]
+
+    Compute the volume in the final state with the just solved $V(T, P)$.
+    \[ T_1 = 400^\circ\text C \]
+    \[ P_1 = 10000\text{ atm} \]
     \begin{align*}
-        V(400, 10000) &= 25.715 \, \exp \Left(
-            \left( 26 \times 10^{-6}  \right) \left( 400 - 25 \right)
-            - \left( 8.0 \times 10^{-7} \right) \left( 10000 - 1 \right) \Right) \\
-            &= 25.760 \text{ (cc/mol)}
+        V(T_1, P_1)
+        &= V_0 \exp \Left( \alpha \left( T_1 - T_0 \right) - \beta \left( P_1 - P_0 \right) \Right) \\
+        &= 25.760 \text{ cc/mol}
     \end{align*}
 \end{answer}
 \end{document}
