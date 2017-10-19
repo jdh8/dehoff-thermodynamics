@@ -1,6 +1,10 @@
 \documentclass[a4paper, 12pt]{article}
 \usepackage{amsmath, amsthm}
 \usepackage{geometry}
+\usepackage{siunitx}
+
+\sisetup{per-mode=reciprocal}
+\DeclareSIUnit{\atm}{atm}
 
 \newcommand{\Left}{\mathopen{}\mathclose\bgroup\left}
 \newcommand{\Right}{\aftergroup\egroup\right}

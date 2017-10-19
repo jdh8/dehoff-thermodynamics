@@ -116,21 +116,19 @@
 \end{answer}
 
 \begin{problem}
-    The molar volume of Al$_2$O$_3$ at 25$^\circ$C and 1 atm is 25.715 cc/mol.
-    Its coefficient of thermal expansion is $26 \times 10^{-6}$ K$^{-1}$ and
-    the coefficient of compressibility is $8.0 \times 10^{-7}$ atm$^{-1}$.
-    Estimate the molar volume of Al$_2$O$_3$ at 400$^\circ$C and 10 kbars
-    pressure ($10 \times 10^3$ atm).
+    The molar volume of Al$_2$O$_3$ at 25\si\celsius\ and 1 atm is 25.715
+    cc/mol.  Its coefficient of thermal expansion is \SI{26e-6}{\per\kelvin}
+    and the coefficient of compressibility is \SI{8.0e-7}{\per\atm}.  Estimate
+    the molar volume of Al$_2$O$_3$ at 400\si\celsius\ and 10 kbars pressure
+    (\SI{10e3}{\atm}).
 \end{problem}
 
 \begin{answer}
     The molar volume $V$ is a function of temperature $T$ and pressure $P$.
     This is an initial value problem.
-    \[ T_0 = 25^\circ\text C \]
-    \[ P_0 = 1\text{ atm} \]
-    \[ V(T_0, P_0) = V_0 = 25.715\text{ cc/mol} \]
-    \[ \frac1V \frac{\partial V}{\partial T} = \alpha = 26 \times 10^{-6}\text{ K}^{-1} \]
-    \[ -\frac1V \frac{\partial V}{\partial P} = \beta = 8.0 \times 10^{-7}\text{ atm}^{-1}.\]
+    \[ V(25\si\celsius, \SI{1}{atm}) = V^\circ = \SI{25.715}{cc/\mol} \]
+    \[ \frac1V \frac{\partial V}{\partial T} = \alpha = \SI{26e-6}{\kelvin^{-1}} \]
+    \[ -\frac1V \frac{\partial V}{\partial P} = \beta = \SI{8.0e-7}{\atm^{-1}}.\]
 
     Convert the system of partial differential equations into differentials.
     \[ dV = V \alpha dT - V \beta dP.\]
@@ -139,21 +137,35 @@
     \[ \int \frac1V dV = \int \alpha dT - \int \beta dP.\]
 
     Integrate from the initial state.
-    \[ \ln V - \ln V_0 = \alpha \left( T - T_0 \right) - \beta \left( P - P_0 \right) \]
-    \[ V = V_0 \exp \Left( \alpha \left( T - T_0 \right) - \beta \left( P - P_0 \right) \Right).\]
+    \[ \ln \frac{V}{V^\circ} = \alpha \left( T - 25\si\celsius \right) - \beta \left( P - \SI{1}{atm} \right) \]
+    \[ V = V^\circ \exp \Left( \alpha \left( T - 25\si\celsius \right) - \beta \left( P - \SI{1}{atm} \right) \Right).\]
 
     Compute the volume in the final state with the just solved $V(T, P)$.
-    \[ T_1 = 400^\circ\text C \]
-    \[ P_1 = 10000\text{ atm} \]
     \begin{align*}
-        V(T_1, P_1)
-        &= V_0 \exp \Left( \alpha \left( T_1 - T_0 \right) - \beta \left( P_1 - P_0 \right) \Right) \\
-        &= 25.760 \text{ cc/mol}
+        V(400\si\celsius, \SI{10}{\kilo\bar})
+        &= V^\circ \exp \Left(
+            \alpha \left( 400\si\celsius - 25\si\celsius \right)
+            - \beta \left( \SI{10}{\kilo\bar} - \SI{1}{atm} \right) \Right) \\
+        &= \SI{25.760}{cc/\mol}
     \end{align*}
 \end{answer}
 
 \begin{problem}
 \end{problem}
+
+\begin{answer}
+    \begin{enumerate}
+        \item \[ \Delta S = \int \frac{\delta Q}{T} = \int \frac{C_P}{T} dT \]
+            \[ C_P = 11.17 + 37.78 \times 10^{-3}\, T + \frac{3.18 \times 10^5}{T^2} \left( \si{\joule\per\mol\per\kelvin} \right) \]
+            \begin{align*}
+                \Delta S &= \int_{300}^{1300} \left( \frac{11.17}{T} + 37.78 \times 10^{-3} + \frac{3.18 \times 10^5}{T^3} \right) dT \\
+                    &= \left[ 11.17 \ln T + 37.78 \times 10^{-3}\, T - \frac{1.59 \times 10^5}{T^2} \right]_{300}^{1300} \\
+                    &= 11.17 \ln \frac{1300}{300} + 37.78
+                        + 1.59 \times 10^5 \left( \frac{1}{300^2} - \frac{1}{1300^2} \right) \\
+                    &\approx 55.83 \left( \si{\joule\per\mol\per\kelvin} \right)
+            \end{align*}
+    \end{enumerate}
+\end{answer}
 
 \begin{problem}
 \end{problem}
