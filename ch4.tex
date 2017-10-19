@@ -126,9 +126,9 @@
 \begin{answer}
     The molar volume $V$ is a function of temperature $T$ and pressure $P$.
     This is an initial value problem.
-    \[ V(25\si\celsius, \SI{1}{atm}) = V^\circ = \SI{25.715}{cc/\mol} \]
-    \[ \frac1V \frac{\partial V}{\partial T} = \alpha = \SI{26e-6}{\kelvin^{-1}} \]
-    \[ -\frac1V \frac{\partial V}{\partial P} = \beta = \SI{8.0e-7}{\atm^{-1}}.\]
+    \[ V(25, 1) = 25.715 \]
+    \[ \frac1V \frac{\partial V}{\partial T} = \alpha = \num{26e-6} \]
+    \[ -\frac1V \frac{\partial V}{\partial P} = \beta = \num{8.0e-7}.\]
 
     Convert the system of partial differential equations into differentials.
     \[ dV = V \alpha dT - V \beta dP.\]
@@ -137,16 +137,16 @@
     \[ \int \frac1V dV = \int \alpha dT - \int \beta dP.\]
 
     Integrate from the initial state.
-    \[ \ln \frac{V}{V^\circ} = \alpha \left( T - 25\si\celsius \right) - \beta \left( P - \SI{1}{atm} \right) \]
-    \[ V = V^\circ \exp \Left( \alpha \left( T - 25\si\celsius \right) - \beta \left( P - \SI{1}{atm} \right) \Right).\]
+    \[ \ln \frac{V}{25.715} = \alpha \left( T - 25 \right) - \beta \left( P - 1 \right) \]
+    \[ V = 25.715 \exp \Left( \alpha \left( T - 25 \right) - \beta \left( P - 1 \right) \Right).\]
 
     Compute the volume in the final state with the just solved $V(T, P)$.
     \begin{align*}
-        V(400\si\celsius, \SI{10}{\kilo\bar})
-        &= V^\circ \exp \Left(
-            \alpha \left( 400\si\celsius - 25\si\celsius \right)
-            - \beta \left( \SI{10}{\kilo\bar} - \SI{1}{atm} \right) \Right) \\
-        &= \SI{25.760}{cc/\mol}
+        V(400, \num{10e3})
+        &= 25.715 \exp \Left(
+            \alpha \left( 400 - 25 \right)
+            - \beta \left( \num{10e3} - 1 \right) \Right) \\
+        &= 25.760 \left( \si{cc/\mol} \right)
     \end{align*}
 \end{answer}
 
@@ -156,14 +156,32 @@
 \begin{answer}
     \begin{enumerate}
         \item \[ \Delta S = \int \frac{\delta Q}{T} = \int \frac{C_P}{T} dT \]
-            \[ C_P = 11.17 + 37.78 \times 10^{-3}\, T + \frac{3.18 \times 10^5}{T^2} \left( \si{\joule\per\mol\per\kelvin} \right) \]
+            \[ C_P = 11.17 + \num{37.78e-3}\,T + \num{3.18e5}{T^2} \left( \si{\joule\per\mol\per\kelvin} \right) \]
             \begin{align*}
-                \Delta S &= \int_{300}^{1300} \left( \frac{11.17}{T} + 37.78 \times 10^{-3} + \frac{3.18 \times 10^5}{T^3} \right) dT \\
-                    &= \left[ 11.17 \ln T + 37.78 \times 10^{-3}\, T - \frac{1.59 \times 10^5}{T^2} \right]_{300}^{1300} \\
+                \Delta S &= \int_{300}^{1300} \left( \frac{11.17}{T} + \num{37.78e-3} + \frac{\num{3.18e5}}{T^3} \right) dT \\
+                    &= \left[ 11.17 \ln T + \num{37.78e-3}\, T - \frac{\num{1.59e5}}{T^2} \right]_{300}^{1300} \\
                     &= 11.17 \ln \frac{1300}{300} + 37.78
-                        + 1.59 \times 10^5 \left( \frac{1}{300^2} - \frac{1}{1300^2} \right) \\
+                        + \num{1.59e5} \left( \frac{1}{300^2} - \frac{1}{1300^2} \right) \\
                     &\approx 55.83 \left( \si{\joule\per\mol\per\kelvin} \right)
             \end{align*}
+
+        \item \[
+                \left( \frac{\partial S}{\partial P} \right)_T
+                = -\frac{\partial^2 G}{\partial T \partial P}
+                = -\left( \frac{\partial V}{\partial T} \right)_P
+                = -V \alpha
+            \]
+            \[ \Delta S = \int \left( \frac{\partial S}{\partial P} \right)_T dP = -\int V \alpha dP \]
+            \[
+                V(T, P) = V^{\text S} \exp \Left(
+                    \alpha \left( T - 298 \right)
+                    - \beta \left( P - 1 \right) \Right).
+            \]
+            \[
+                V(300, P) = V^{\text S} \exp \Left(
+                    2 \alpha
+                    - \beta \left( P - 1 \right) \Right).
+            \]
     \end{enumerate}
 \end{answer}
 
