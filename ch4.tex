@@ -134,7 +134,9 @@
     \[ dV = V \alpha dT - V \beta dP.\]
 
     This is a separable equation, which is solvable by mere integration.
-    \[ \int \frac1V dV = \int \alpha dT - \int \beta dP.\]
+    \begin{equation}
+        \int \frac1V dV = \int \alpha dT - \int \beta dP. \label{eq:VTP}
+    \end{equation}
 
     Integrate from the initial state.
     \[ \ln \frac{V}{25.715} = \alpha \left( T - 25 \right) - \beta \left( P - 1 \right) \]
@@ -172,13 +174,18 @@
                     &\approx 55.83 \left( \si{\joule\per\mol\per\kelvin} \right)
             \end{align*}
 
-        \item \[
+        \item Computing isothermal entropy is somewhat tricky because
+            involvement of a Maxwell relation.
+            \[
                 \left( \frac{\partial S}{\partial P} \right)_T
                 = -\frac{\partial^2 G}{\partial T \partial P}
                 = -\left( \frac{\partial V}{\partial T} \right)_P
                 = -V \alpha
             \]
             \[ \Delta S = \int \left( \frac{\partial S}{\partial P} \right)_T dP = -\int V \alpha dP \]
+
+            Solving $V(T, P)$ is omitted because already done in
+            \eqref{eq:VTP}.
             \[
                 V(T, P) = V^{\text S} \exp \Left(
                     \alpha \left( T - 298 \right)
