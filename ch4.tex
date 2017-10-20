@@ -156,7 +156,7 @@
 \begin{answer}
     \begin{enumerate}
         \item \[ \Delta S = \int \frac{\delta Q}{T} = \int \frac{C_P}{T} dT \]
-            \[ C_P = 11.17 + \num{37.78e-3}\,T + \num{3.18e5}{T^2} \left( \si{\joule\per\mol\per\kelvin} \right) \]
+            \[ C_P = 11.17 + \num{37.78e-3}\,T + \frac{\num{3.18e5}}{T^2} \left( \si{\joule\per\mol\per\kelvin} \right) \]
             \begin{align*}
                 \Delta S &= \int_{300}^{1300} \left( \frac{11.17}{T} + \num{37.78e-3} + \frac{\num{3.18e5}}{T^3} \right) dT \\
                     &= \left[ 11.17 \ln T + \num{37.78e-3}\, T - \frac{\num{1.59e5}}{T^2} \right]_{300}^{1300} \\
@@ -182,6 +182,15 @@
                     2 \alpha
                     - \beta \left( P - 1 \right) \Right).
             \]
+            \begin{align*}
+                \Delta S &= -V^{\text S} \alpha \int_1^{\num{100e3}}
+                    \exp \Left( 2 \alpha - \beta \left( P - 1 \right) \Right) dP \\
+                &= \frac{V^{\text S} \alpha}{\beta}
+                    \left[ \exp \Left( 2 \alpha - \beta \left( P - 1 \right) \Right) \right]_1^{\num{100e3}}
+            \end{align*}
+            \begin{center}
+                \SI{1}{\atm.cc} = \SI{0.101325}{\joule}
+            \end{center}
     \end{enumerate}
 \end{answer}
 
