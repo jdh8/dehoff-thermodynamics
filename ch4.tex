@@ -139,17 +139,14 @@
     \end{equation}
 
     Integrate from the initial state.
-    \[ \ln \frac{V}{25.715} = \alpha \left( T - 25 \right) - \beta \left( P - 1 \right) \]
-    \[ V = 25.715 \exp \Left( \alpha \left( T - 25 \right) - \beta \left( P - 1 \right) \Right).\]
+    \begin{@empty}
+        \newcommand{\exponent}{\num{26e-6} \left( T - 25 \right) - \num{8.0e-7} \left( P - 1 \right)}
+        \[ \ln \frac{V}{25.715} = \exponent \]
+        \[ V = 25.715 \exp \Left( \exponent \Right).\]
+    \end{@empty}
 
     Compute the volume in the final state with the just solved $V(T, P)$.
-    \begin{align*}
-        V(400, \num{10e3})
-        &= 25.715 \exp \Left(
-            \alpha \left( 400 - 25 \right)
-            - \beta \left( \num{10e3} - 1 \right) \Right) \\
-        &= 25.760 \left( \si{cc/\mol} \right)
-    \end{align*}
+    \[ V(400, \num{10e3}) = 25.760 \left( \si{cc/\mol} \right).\]
 \end{answer}
 
 \begin{problem}
