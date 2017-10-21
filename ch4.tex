@@ -206,6 +206,13 @@
             \begin{center}
                 \SI{1}{\atm.cc} = \SI{0.101325}{\joule}
             \end{center}
+            \begin{align*}
+                \Delta S &= 0.101325
+                    \left( \frac{6.60 \left( \num{40e-6} \right)}{\num{26e-7}} \right)
+                    \exp \Left( \num{80e-6} \Right) \\
+                    &\phantom=\: \left( \exp \Left( -\num{26e-7} \left( \num{100e3} - 1 \right) \Right) - 1 \right) \\
+                    &= -2.36 \left( \si{\joule\per\mol\per\kelvin} \right) \tag{?}
+            \end{align*}
     \end{enumerate}
 \end{answer}
 
