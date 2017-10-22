@@ -1,10 +1,11 @@
-\documentclass[a4paper, 12pt]{article}
+\documentclass[a4paper]{article}
 \usepackage{amsmath, amsthm}
 \usepackage{geometry}
 \usepackage{siunitx}
 
 \sisetup{per-mode=reciprocal}
 \DeclareSIUnit{\atm}{atm}
+\DeclareSIUnit{\cc}{cc}
 
 \newcommand{\Left}{\mathopen{}\mathclose\bgroup\left}
 \newcommand{\Right}{\aftergroup\egroup\right}
@@ -14,7 +15,7 @@
 
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
-\newtheorem*{answer}{Answer}
+\newtheorem*{answer}{Solution}
 
 \renewcommand{\theenumi}{\alph{enumi}}
 

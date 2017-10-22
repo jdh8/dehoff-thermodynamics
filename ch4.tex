@@ -124,29 +124,37 @@
 \end{problem}
 
 \begin{answer}
-    The molar volume $V$ is a function of temperature $T$ and pressure $P$.
-    This is an initial value problem.
-    \[ V(25, 1) = 25.715 \]
-    \[ \frac1V \frac{\partial V}{\partial T} = \alpha = \num{26e-6} \]
-    \[ -\frac1V \frac{\partial V}{\partial P} = \beta = \num{8.0e-7}.\]
-
-    Convert the system of partial differential equations into differentials.
-    \[ dV = V \alpha dT - V \beta dP.\]
-
-    This is a separable equation, which is solvable by mere integration.
-    \begin{equation}
-        \int \frac1V dV = \int \alpha dT - \int \beta dP. \label{eq:VTP}
-    \end{equation}
-
-    Integrate from the initial state.
     \begin{@empty}
-        \newcommand{\exponent}{\num{26e-6} \left( T - 25 \right) - \num{8.0e-7} \left( P - 1 \right)}
-        \[ \ln \frac{V}{25.715} = \exponent \]
-        \[ V = 25.715 \exp \Left( \exponent \Right).\]
+        \newcommand{\thisV}{\SI{25.715}{cc/\mol}}
+        \newcommand{\thisT}{25\si\celsius}
+        \newcommand{\thisP}{\SI{1}{atm}}
+        \newcommand{\thisa}{\SI{26e-6}{\per\kelvin}}
+        \newcommand{\thisb}{\SI{8.0e-7}{\per\atm}}
+
+        The molar volume $V$ is a function of temperature $T$ and pressure $P$.
+        This is an initial value problem.
+        \[ V(\thisT, \thisP) = \thisV \]
+        \[ \frac1V \frac{\partial V}{\partial T} = \alpha = \thisa \]
+        \[ -\frac1V \frac{\partial V}{\partial P} = \beta = \thisb.\]
+
+        Convert the system of partial differential equations into differentials.
+        \[ dV = V \alpha dT - V \beta dP.\]
+
+        \newcommand{\varthisV}{\SI[per-mode=fraction]{25.715}{\cc\per\mol}}
+        \newcommand{\exponent}{\thisa \left( T - \thisT \right)
+            - \thisb \left( P - \thisP \right)}
+        This is a separable equation, which is solvable by mere integration.
+        \[
+            \int_{\varthisV}^V \frac1V dV
+            = \int_{\thisT}^T \thisa dT
+            - \int_{\thisP}^P \thisb dP
+        \]
+        \[ \ln \frac{V}{\thisV} = \exponent \]
+        \[ V = \varthisV \cdot \exp \Left( \exponent \Right).\]
     \end{@empty}
 
     Compute the volume in the final state with the just solved $V(T, P)$.
-    \[ V(400, \num{10e3}) = 25.760 \left( \si{cc/\mol} \right).\]
+    \[ V(400\si\celsius, \SI{10e3}{\atm}) = \SI{25.760}{\cc/\mol}.\]
 \end{answer}
 
 \begin{problem}
@@ -181,38 +189,56 @@
             \]
             \[ \Delta S = \int \left( \frac{\partial S}{\partial P} \right)_T dP = -\int V \alpha dP \]
 
-            Solving $V(T, P)$ is omitted because already done in
-            \eqref{eq:VTP}.
-            \[
-                V(T, P) = V^{\text S} \exp \Left(
-                    \alpha \left( T - 298 \right)
-                    - \beta \left( P - 1 \right) \Right).
-            \]
-            \[
-                V(300, P) = V^{\text S} \exp \Left(
-                    2 \alpha
-                    - \beta \left( P - 1 \right) \Right).
-            \]
-            \begin{align*}
-                \Delta S &= -V^{\text S} \alpha \int_1^{\num{100e3}}
-                    \exp \Left( 2 \alpha - \beta \left( P - 1 \right) \Right) dP \\
-                &= \frac{V^{\text S} \alpha}{\beta}
-                    \left[ \exp \Left( 2 \alpha - \beta \left( P - 1 \right) \Right) \right]_1^{\num{100e3}}
-            \end{align*}
+            \begin{@empty}
+                \newcommand{\stdT}{\SI{298}{\kelvin}}
+                \newcommand{\stdP}{\SI{1}{\atm}}
+                \newcommand{\thisa}{\SI{40e-6}{\per\kelvin}}
+                \newcommand{\thisb}{\SI{26e-7}{\per\atm}}
+                \newcommand{\thisVS}{\SI[per-mode=fraction]{6.60}{\cc\per\mol}}
+                \newcommand{\exponent}{\num{80e-6} - \thisb \left( P - \stdP \right)}
 
-            Note that the equation above would produce energy in \si{\atm.cc}
-            if unadjusted due to units for $V^{\text S}$ and $\beta$.  Multiply
-            the conversion factor to get energy in joules.
-            \begin{center}
-                \SI{1}{\atm.cc} = \SI{0.101325}{\joule}
-            \end{center}
-            \begin{align*}
-                \Delta S &= 0.101325
-                    \left( \frac{6.60 \left( \num{40e-6} \right)}{\num{26e-7}} \right)
-                    \exp \Left( \num{80e-6} \Right) \\
-                    &\phantom=\: \left( \exp \Left( -\num{26e-7} \left( \num{100e3} - 1 \right) \Right) - 1 \right) \\
-                    &= -2.36 \left( \si{\joule\per\mol\per\kelvin} \right) \tag{?}
-            \end{align*}
+                Solve $V(P)$ from the differential equation where $T =
+                \SI{300}{\kelvin}$.
+                \[ dV = V\alpha dT - V\beta dP.\]
+
+                With only molar volume at \stdT, we still have to integrate
+                from \stdT\ and \stdP.
+                \[
+                    \int_{V^{\text S}}^V \frac1V dV
+                    = \int_{\stdT}^{\SI{300}{\kelvin}} \thisa dT
+                    + \int_{\stdP}^P \thisb dP
+                \]
+                \[ V(\stdP) = V^{\text S} = \SI{6.60}{\cc/\mol} \]
+                \[
+                    V(P) = \thisVS \cdot \exp \Left( \exponent \Right).
+                \]
+
+                Now find entropy change with $V(P)$.  Note that the unadjusted
+                equation would produce energy in \si{\atm.cc} due to units for
+                $V^{\text S}$ and $\beta$.  Multiply the conversion factor to get
+                energy in joules.
+                \begin{center}
+                    \SI{1}{\atm.cc} = \SI{0.101325}{\joule}
+                \end{center}
+                \[ \Delta S(P) = -\thisa \int_{\stdP}^P V(P)\,dP \]
+                \begin{align*}
+                    \int_{\stdP}^P V dP &= \thisVS \int_{\stdP}^P \exp \Left( \exponent \Right) dP \\
+                    &= -\thisVS \cdot \frac{\exp \Left( \num{80e-6} \Right)}{\thisb}
+                        \left[ \exp \Left( -\thisb \left( P - \stdP \right) \Right) \right]_{\stdP}^P \\
+                    &= -\thisVS \cdot \frac{\exp \Left( \num{80e-6} \Right)}{\thisb}
+                        \left( \exp \Left( -\thisb \left( P - \stdP \right) \Right) - 1 \right)
+                \end{align*}
+                \begin{align*}
+                    \Delta S(\SI{100e3}{\atm}) &= \SI[per-mode=fraction]{0.101325}{\joule\per\atm\per\cc}
+                        \cdot \thisa \cdot \thisVS \cdot \frac{\exp \Left( \num{80e-6} \Right)}{\thisb} \\
+                        &\quad \left( \exp \Left( -\thisb \left( \SI{100e3}{\atm} - \stdP \right) \Right) - 1 \right) \\
+                        &= \SI{-2.36}{\joule\per\mol\per\kelvin}
+                \end{align*}
+            \end{@empty}
+
+            This answer departs from the published answer because the textbook
+            author thoroughly assumes $\exp x \approx 1 + x$.  The answer
+            provided here is more precise.
     \end{enumerate}
 \end{answer}
 
