@@ -276,4 +276,69 @@
         = \frac{C_P}{C_P - TS\alpha}
     \]
 \end{answer}
+
+\begin{problem}
+\end{problem}
+
+\begin{problem}
+\end{problem}
+
+\begin{problem}
+\end{problem}
+
+\begin{problem}
+\end{problem}
+
+\begin{problem}
+\end{problem}
+
+\begin{remark}
+    Do not use the differential
+    \[ dG = -SdT + VdP \]
+    because we cannot express $V$ in $V(P)$.  The volume depends on both
+    temperature and pressure, i.e. $V(T, P)$.
+\end{remark}
+
+\begin{answer}
+    Gibbs energy is defined as
+    \begin{equation}
+        G = H - TS. \label{eq:4.14.G}
+    \end{equation}
+
+    Gibbs energy of a gas is a function of temperature and pressure.  More
+    precisely, $H$ can be expressed with $H(T)$ and $S$ with $S(T, P)$ given
+    its standard entropy $S_{298}^\circ$.
+
+    For a diatomic gas, its enthalpy is given as
+    \begin{equation}
+        H = U + PV = C_V T + PV = C_P T = \frac72 RT. \label{eq:4.14.H}
+    \end{equation}
+
+    It is somewhat more complicated to calculate entropy.  Consider the
+    differential of entropy:
+    \[ dS = \frac{C_P}{T} dT - V\alpha dP.\]
+
+    Obviously $C_P / T$ is a function of $T$
+    \[ \frac{C_P}{T} = \frac{7R}{2T}.\]
+
+    $V\alpha$ is unlikely to be a function of $P$ at the first glance, but it
+    is.
+    \[ V\alpha = \frac{RT}{P} \frac{1}{T} = \frac{R}{P}.\]
+
+    Therefore, we can find entropy with integration.
+    \[ S(T, P) - S_{298}^\circ = \int_{\SI{298}{\kelvin}}^T \frac{7R}{2T} dT + \int_{\SI{1}{\atm}}^P \frac{R}{P} dP.\]
+    \begin{equation}
+        S = S_{298}^\circ + R \left( \frac72 \ln\frac{T}{\SI{298}{\kelvin}} + \ln\frac{P}{\SI{1}{\atm}} \right)
+        \label{eq:4.14.S}
+    \end{equation}
+
+    Combine equation \eqref{eq:4.14.G}, \eqref{eq:4.14.H}, and
+    \eqref{eq:4.14.S}:
+    \[ G = \frac72 RT - S_{298}^\circ T - RT \left( \frac72 \ln\frac{T}{\SI{298}{\kelvin}} + \ln\frac{P}{\SI{1}{\atm}} \right) \]
+
+    Plot this function given $S_{298}^\circ = \SI{130.57}{\joule\per\mol\per\kelvin}$
+    and $R = \SI{8.314}{\joule\per\mol\per\kelvin}$.  This binary function,
+    whose plot is a surface in a 3-D space, is preferably plotted with a
+    computer program.
+\end{answer}
 \end{@empty}
