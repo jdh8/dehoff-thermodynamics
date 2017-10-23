@@ -1,0 +1,71 @@
+\begin{@empty}
+\section{Equilibrium in thermodynamic systems}
+\begin{problem}
+\end{problem}
+
+\begin{problem}
+\end{problem}
+
+\begin{problem}
+\end{problem}
+
+\begin{problem}
+\end{problem}
+
+\begin{problem}
+\end{problem}
+
+\begin{problem}
+\end{problem}
+
+\begin{problem}
+\end{problem}
+
+\begin{problem}
+\end{problem}
+
+\begin{problem}
+    The combined statement of the first and second laws for the change in
+    enthalpy of a unary single-phase system may be written:
+    \[ dH' = TdS' + V'dP + \mu dn \]
+
+    Use this result to write an expression for the change in enthalpy of a
+    two-phase $(\alpha + \beta)$ system.  If the entropy, pressure, and total
+    number of moles are constrained to be constant, then the criterion for
+    equilibrium is that the enthalpy is a minimum.  Paraphase the strategy used
+    to deduce the conditions for equilibrium in an isolated system to derive
+    them for a system constrained to constant $S'$, $P$, and $n$.  What happens
+    to the condition for mechanical equilibrium?
+\end{problem}
+
+\begin{answer}
+    Split the system in $\alpha$ and $\beta$ parts.
+    \[ dH'^\alpha = T^\alpha dS'^\alpha + V'^\alpha dP^\alpha + \mu^\alpha dn^\alpha \]
+    \[ dH'^\beta  = T^\beta  dS'^\beta  + V'^\beta  dP^\beta  + \mu^\beta  dn^\beta  \]
+
+    The constraints for the criterion are:
+    \[ dS'^\alpha + dS'^\beta = 0 \]
+    \[ \frac{V'^\alpha dP^\alpha + V'^\beta dP^\beta}{V'^\alpha + V'^\beta} = 0 \]
+    \[ dn^\alpha + dn^\beta = 0 \]
+
+    The $\beta$ variables are dependent on $\alpha$ counterparts.
+    \[ dS'^\beta = -ds'^\alpha \]
+    \[ dP^\beta = -\frac{V'^\alpha}{V'^\beta} dP^\alpha \]
+    \[ dn^\beta = -dn'^\alpha \]
+
+    Therefore, for the system,
+    \[
+        dH'^\alpha + dH'^\beta
+        = \left( T^\alpha - T^\beta \right) dS'^\alpha
+        + \left( \mu^\alpha - \mu^\beta \right) dn^\alpha
+    \]
+
+    The $dP^\alpha$ term vanished because isobaric condition already implies
+    mechanical equilibrium.  Zero out the other coefficients to obtain the
+    minimum enthalpy.
+    \begin{align*}
+        T^\alpha &= T^\beta \tag{thermal equilibrium} \\
+        \mu^\alpha &= \mu^\beta \tag{chemical equilibrium}
+    \end{align*}
+\end{answer}
+\end{@empty}
