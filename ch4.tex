@@ -196,6 +196,7 @@
                 \newcommand{\thisb}{\SI{26e-7}{\per\atm}}
                 \newcommand{\thisVS}{\SI[per-mode=fraction]{6.60}{\cc\per\mol}}
                 \newcommand{\exponent}{\num{80e-6} - \thisb \left( P - \stdP \right)}
+                \newcommand{\convert}{\SI[per-mode=fraction]{0.101325}{\joule\per\atm\per\cc}}
 
                 Solve $V(P)$ from the differential equation where $T =
                 \SI{300}{\kelvin}$.
@@ -208,7 +209,6 @@
                     = \int_{\stdT}^{\SI{300}{\kelvin}} \thisa dT
                     - \int_{\stdP}^P \thisb dP
                 \]
-                \[ V(\stdP) = V^{\text S} = \SI{6.60}{\cc/\mol} \]
                 \[
                     V(P) = \thisVS \cdot \exp \Left( \exponent \Right).
                 \]
@@ -229,16 +229,33 @@
                         \left( \exp \Left( -\thisb \left( P - \stdP \right) \Right) - 1 \right)
                 \end{align*}
                 \begin{align*}
-                    \Delta S(\SI{100e3}{\atm}) &= \SI[per-mode=fraction]{0.101325}{\joule\per\atm\per\cc}
+                    \Delta S \Left( \SI{100e3}{\atm} \Right) &= \convert
                         \cdot \thisa \cdot \thisVS \cdot \frac{\exp \Left( \num{80e-6} \Right)}{\thisb} \\
                         &\quad \left( \exp \Left( -\thisb \left( \SI{100e3}{\atm} - \stdP \right) \Right) - 1 \right) \\
-                        &= \SI{-2.36}{\joule\per\mol\per\kelvin}
+                        &\approx \SI{-2.36}{\joule\per\mol\per\kelvin}
                 \end{align*}
-            \end{@empty}
 
-            This answer departs from the published answer because the textbook
-            author thoroughly assumes $\exp x \approx 1 + x$.  The answer
-            provided here is more precise.
+                This answer departs from the published answer because the textbook author
+                found $V(P)$ too complicated and replaced it with $V(\SI{1}{\atm})$.
+                This assumption greatly simplifies calculation but generates remarkable
+                bias.
+                \[
+                    \int_{V^{\text S}}^V \frac1V dV
+                    = \int_{\stdT}^{\SI{300}{\kelvin}} \thisa dT
+                \]
+                \[
+                    V = \thisVS \cdot \exp \Left( \num{80e-6} \Right)
+                \]
+                \begin{align*}
+                    \Delta S(P) &= -\thisa \int_{\stdP}^P VdP \\
+                    &= -\thisa \cdot \thisVS \cdot \exp \Left( \num{80e-6} \Right)
+                        \left( P - \stdP \right)
+                \end{align*}
+                \[
+                    \Delta S \Left( \SI{100e3}{\atm} \Right) \cdot \convert
+                    \approx \SI{-2.68}{\joule\per\mol\per\kelvin}
+                \]
+            \end{@empty}
     \end{enumerate}
 \end{answer}
 
@@ -263,11 +280,8 @@
     \[ V\alpha = \frac{RT}{P} \frac{1}{T} = \frac{R}{P}.\]
 
     Therefore, we can find entropy with integration.
-    \[ S(T, P) - S_{298}^\circ = \int_{\SI{298}{\kelvin}}^T \frac{7R}{2T} dT + \int_{\SI{1}{\atm}}^P \frac{R}{P} dP.\]
-    \begin{equation}
-        S = S_{298}^\circ + R \left( \frac72 \ln\frac{T}{\SI{298}{\kelvin}} + \ln\frac{P}{\SI{1}{\atm}} \right)
-        \label{eq:4.14.S}
-    \end{equation}
+    \[ S(T, P) - S_{298}^\circ = \int_{\SI{298}{\kelvin}}^T \frac{7R}{2T} dT - \int_{\SI{1}{\atm}}^P \frac{R}{P} dP \]
+    \[ S = S_{298}^\circ + R \left( \frac72 \ln\frac{T}{\SI{298}{\kelvin}} - \ln\frac{P}{\SI{1}{\atm}} \right).\]
 
     Plot this function given $S_{298}^\circ = \SI{191.5}{\joule\per\mol\per\kelvin}$
     and $R = \SI{8.314}{\joule\per\mol\per\kelvin}$.  This binary function,
@@ -380,15 +394,15 @@
     \end{align*}
 
     Therefore, we can find entropy with integration.
-    \[ S(T, P) - S_{298}^\circ = \int_{\SI{298}{\kelvin}}^T \frac{7R}{2T} dT + \int_{\SI{1}{\atm}}^P \frac{R}{P} dP.\]
+    \[ S(T, P) - S_{298}^\circ = \int_{\SI{298}{\kelvin}}^T \frac{7R}{2T} dT - \int_{\SI{1}{\atm}}^P \frac{R}{P} dP.\]
     \begin{equation}
-        S = S_{298}^\circ + R \left( \frac72 \ln\frac{T}{\SI{298}{\kelvin}} + \ln\frac{P}{\SI{1}{\atm}} \right)
+        S = S_{298}^\circ + R \left( \frac72 \ln\frac{T}{\SI{298}{\kelvin}} - \ln\frac{P}{\SI{1}{\atm}} \right)
         \label{eq:4.14.S}
     \end{equation}
 
     Combine equation \eqref{eq:4.14.G}, \eqref{eq:4.14.H}, and
     \eqref{eq:4.14.S}:
-    \[ G = \frac72 RT - S_{298}^\circ T - RT \left( \frac72 \ln\frac{T}{\SI{298}{\kelvin}} + \ln\frac{P}{\SI{1}{\atm}} \right) \]
+    \[ G = \frac72 RT - S_{298}^\circ T + RT \left( \ln\frac{P}{\SI{1}{\atm}} - \frac72 \ln\frac{T}{\SI{298}{\kelvin}} \right) \]
 
     Plot this function given $S_{298}^\circ = \SI{130.57}{\joule\per\mol\per\kelvin}$
     and $R = \SI{8.314}{\joule\per\mol\per\kelvin}$.  This binary function,
